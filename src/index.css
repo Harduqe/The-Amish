@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    background: #fbf8f1;
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    background-color: #fbf8f1;
+    color: #2e261e;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: clip;
+  }
+
+  img,
+  video,
+  iframe {
+    display: block;
+    max-width: 100%;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid #586b4a;
+    outline-offset: 3px;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@layer components {
+  .page-section {
+    padding-block: clamp(4.5rem, 8vw, 7.5rem);
+  }
+
+  .section-frame {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+  }
+
+  .section-kicker {
+    margin-bottom: 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    max-width: 20ch;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .section-copy {
+    max-width: 66ch;
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    line-height: 1.75;
+    text-wrap: pretty;
+  }
+
+  .content-card {
+    min-width: 0;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgb(34 28 22 / 5%), 0 8px 24px rgb(34 28 22 / 4%);
+    transition: box-shadow 180ms ease, transform 180ms ease, border-color 180ms ease;
+  }
+
+  .card-interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgb(34 28 22 / 8%), 0 16px 36px rgb(34 28 22 / 7%);
+  }
+
+  .interactive-control {
+    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+  }
+
+  .external-link {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .external-link:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .hero-credit {
+    position: absolute;
+    right: max(1rem, calc((100vw - 72rem) / 2));
+    bottom: 1.25rem;
+    color: rgb(251 248 241 / 80%);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-section {
+    background-color: #2e261e;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
