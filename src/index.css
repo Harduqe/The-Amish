@@ -84,6 +84,29 @@
     text-wrap: pretty;
   }
 
+  .region-viewer-bleed {
+    position: relative;
+    left: 50%;
+    width: calc(100vw - 2rem);
+    max-width: none;
+    margin-left: calc(-50vw + 1rem);
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 12px 36px rgb(34 28 22 / 12%);
+  }
+
+  .region-viewer-frame,
+  .region-viewer-fallback {
+    display: block;
+    width: 100%;
+    height: clamp(28rem, 72svh, 58rem);
+    max-width: none;
+  }
+
+  .region-viewer-frame {
+    border: 0;
+  }
+
   .content-card {
     min-width: 0;
     border-radius: 1rem;
@@ -120,6 +143,13 @@
 
   .hero-section {
     background-color: #2e261e;
+  }
+}
+
+@media (max-width: 640px) {
+  .region-viewer-frame,
+  .region-viewer-fallback {
+    height: clamp(24rem, 68svh, 38rem);
   }
 }
 

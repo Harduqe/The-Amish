@@ -39,6 +39,7 @@ export const ui = {
   footerNavigation: { en: 'Footer navigation', es: 'Navegación del pie de página' },
   opensNewTab: { en: 'Opens in a new tab', es: 'Se abre en una pestaña nueva' },
   skipToContent: { en: 'Skip to main content', es: 'Ir al contenido principal' },
+  backToTop: { en: 'Back to top', es: 'Volver arriba' },
   explore: { en: 'Explore the Guide', es: 'Explorar la Guía' },
   watchVideo: { en: 'Watch the Video', es: 'Ver el Video' },
   sectionLabel: {
@@ -113,12 +114,19 @@ export const intro = {
 export const region = {
   heading: { en: 'Discover the Region', es: 'Descubre la región' },
   lead: {
-    en: 'Lancaster County lies in southeastern Pennsylvania. The map below shows the county seat and several reference points for visitors. No private farm or residence is marked as an attraction.',
-    es: 'Lancaster County se encuentra en el sureste de Pensilvania. El mapa muestra la capital del condado y varios puntos de referencia para visitantes. No se marca ninguna granja ni residencia privada como atracción.',
+    en: 'Explore public destinations in Lancaster County through captured Street View panoramas. Select a place below to change the view; no private home or farm is presented as an attraction.',
+    es: 'Explora lugares públicos de Lancaster County mediante panorámicas capturadas de Street View. Selecciona un destino para cambiar la vista; ninguna casa ni granja privada se presenta como atracción.',
   },
   points: [
     {
       name: { en: 'Lancaster City', es: 'Lancaster City' },
+      location: { en: 'The Amish Village · Ronks, Lancaster County', es: 'The Amish Village · Ronks, Lancaster County' },
+      coordinates: '40.0075807,-76.1867228',
+      pano: 'fDQM9qi-4nHwYiewKP2wug',
+      heading: 60.6343,
+      pitch: -4.2549,
+      mapsUrl: 'https://www.google.com/maps/@40.0075807,-76.1867228,18z',
+      sourceUrl: 'https://lancasterpa.com/things-to-do/amish-attractions/',
       role: {
         en: 'County seat — museums, dining and Amtrak station.',
         es: 'Capital del condado — museos, restaurantes y estación de Amtrak.',
@@ -126,6 +134,13 @@ export const region = {
     },
     {
       name: { en: 'Intercourse', es: 'Intercourse' },
+      location: { en: 'Kitchen Kettle Village · Intercourse', es: 'Kitchen Kettle Village · Intercourse' },
+      coordinates: '40.0398741,-76.1097525',
+      pano: 'RtNjIuiJVVH50t2bstiPYw',
+      heading: 51.0445,
+      pitch: 4.4246,
+      mapsUrl: 'https://www.google.com/maps/@40.0398741,-76.1097525,18z',
+      sourceUrl: 'https://www.kitchenkettle.com/our-village/contact-us.asp',
       role: {
         en: 'Small village with shops and visitor information.',
         es: 'Pequeño pueblo con tiendas e información para visitantes.',
@@ -133,6 +148,13 @@ export const region = {
     },
     {
       name: { en: 'Strasburg', es: 'Strasburg' },
+      location: { en: 'Strasburg', es: 'Strasburg' },
+      coordinates: '39.9830121,-76.1606952',
+      radius: 100,
+      heading: 0,
+      pitch: 0,
+      mapsUrl: 'https://www.google.com/maps/@39.9830121,-76.1606952,18z',
+      sourceUrl: 'https://strasburgrailroad.com/',
       role: {
         en: 'Heritage rail line and rural surroundings.',
         es: 'Línea ferroviaria histórica y entorno rural.',
@@ -140,15 +162,22 @@ export const region = {
     },
     {
       name: { en: 'Bird-in-Hand', es: 'Bird-in-Hand' },
+      location: { en: 'Near 2760 Old Philadelphia Pike · Bird-in-Hand', es: 'Cerca de 2760 Old Philadelphia Pike · Bird-in-Hand' },
+      coordinates: '40.0381283,-76.174453',
+      pano: 'l-dPhOCGrVlHGrFnPRgg9g',
+      heading: 359.4434,
+      pitch: -0.8143,
+      mapsUrl: 'https://www.google.com/maps/@40.0381283,-76.174453,18z',
+      sourceUrl: 'https://bird-in-hand.com/',
       role: {
         en: 'Roadside community with markets and bakeries.',
         es: 'Comunidad a pie de carretera con mercados y panaderías.',
       },
     },
   ],
-  mapAttribution: {
-    en: 'Map data © OpenStreetMap contributors. Approximate locations for orientation only.',
-    es: 'Datos del mapa © colaboradores de OpenStreetMap. Ubicaciones aproximadas, solo para orientación.',
+  streetViewNote: {
+    en: 'These are captured Google Street View panoramas, not a live broadcast. If Google shows an access error, enable Maps Embed API and allow this page origin in the key’s HTTP referrer restrictions. Coverage and image dates may change.',
+    es: 'Son panorámicas capturadas de Google Street View, no una transmisión en vivo. Si Google muestra un error de acceso, habilita Maps Embed API y permite el origen de esta página en las restricciones de HTTP referrer de la clave. La cobertura y las fechas de las imágenes pueden cambiar.',
   },
 };
 
@@ -483,10 +512,13 @@ export const sources = {
       },
     },
     {
-      title: 'OpenStreetMap',
-      org: 'OpenStreetMap contributors',
-      url: 'https://www.openstreetmap.org/',
-      note: { en: 'Base map data for the regional map.', es: 'Datos del mapa base para el mapa regional.' },
+      title: 'Google Maps Street View',
+      org: 'Google Maps Platform',
+      url: 'https://developers.google.com/maps/documentation/embed/embedding-map',
+      note: {
+        en: 'Documentation for the embedded panorama viewer. Imagery is captured, may change, and depends on coverage near each public location.',
+        es: 'Documentación del visor panorámico incrustado. Las imágenes son capturadas, pueden cambiar y dependen de la cobertura cercana a cada lugar público.',
+      },
     },
     {
       title: 'Pexels',

@@ -1,5 +1,41 @@
 # Mejoras propuestas para la single page
 
+## Imágenes responsivas y navegación contextual
+
+- [x] Imágenes de Pexels con `srcSet`/`sizes`, variantes AVIF/WebP y fallback JPEG; dimensiones intrínsecas para reservar espacio y carga diferida en fotos bajo el primer pantallazo.
+- [x] Imagen del hero priorizada con `fetchPriority="high"`, carga inmediata y variantes responsivas.
+- [x] Menú principal y móvil reflejan la sección actual durante el desplazamiento con `aria-current`; se añadió un botón discreto para volver arriba.
+- [x] El botón de retorno respeta `prefers-reduced-motion` y usa desplazamiento inmediato cuando esa preferencia está activa.
+- [x] Revisado visualmente el hero en escritorio, la imagen principal carga y el menú marca el estado actual al navegar; el control de retorno aparece después de desplazarse.
+- [x] Typecheck y build pasan; lint sin errores y con una advertencia Fast Refresh preexistente en `src/i18n.tsx`.
+
+## Street View a ancho completo y destinos verificados
+
+### Implementado
+
+- [x] Conservados los nombres, orden y descripciones EN/ES de las cuatro tarjetas originales; controles de destino compactos cambian una sola tarjeta informativa y el panorama activo.
+- [x] Visor casi a ancho completo, separado 1rem de cada borde, con esquinas redondeadas, sombra y altura adaptable por dispositivo. La tarjeta informativa compacta queda inmediatamente debajo.
+- [x] La tarjeta mantiene una composición vertical consistente: destino, ubicación, descripción y selectores; los enlaces de visitantes y Google Maps quedan en una fila inferior separada por una línea, tanto en móvil como en escritorio.
+- [x] Lancaster usa el panorama de The Amish Village en Ronks; Bird-in-Hand usa el panorama asociado a 2760 Old Philadelphia Pike; Intercourse usa el panorama de Kitchen Kettle Village. URLs y orientaciones proceden de los enlaces suministrados por el usuario. Google etiqueta visualmente la panorámica de Bird-in-Hand como 2754 Old Philadelphia Pike, por lo que la tarjeta indica «cerca de 2760».
+- [x] Strasburg conserva la búsqueda exterior por ubicación pública que ya cargaba la panorámica del ferrocarril.
+- [x] Se mantienen controles nativos del iframe, foco visible, estados seleccionados, alternativa bilingüe cuando falta la clave y advertencia de que las imágenes no son una transmisión en vivo.
+
+### Validación ejecutada
+
+- [x] En navegador, se visualizaron los panoramas proporcionados para Lancaster (The Amish Village), Intercourse (Kitchen Kettle Village) y Bird-in-Hand (Google identifica el punto como 2754 Old Philadelphia Pike); la vista exterior de Strasburg se había comprobado anteriormente.
+- [x] En navegador móvil, el visor conserva un margen uniforme, esquinas redondeadas y controles de Maps; la fila inferior presenta los dos enlaces juntos bajo una línea divisoria. No se observó desbordamiento horizontal en esta vista.
+- [x] `npm run typecheck`, `npm run lint` y `npm run build` finalizaron correctamente; lint conserva una advertencia Fast Refresh existente en `src/i18n.tsx`.
+- [ ] No se pudo confirmar visualmente el ancho completo en escritorio en este pase.
+- [ ] Antes de Preview en Vercel, permitir el dominio Preview en las restricciones HTTP referrer de `VITE_GOOGLE_MAPS_EMBED_API_KEY`; en la sesión anterior Google aceptó `localhost:5173` y rechazó el origen `localhost:5174`.
+
+### Archivos de esta corrección
+
+- `src/components/DiscoverRegion.tsx`
+- `src/content.ts`
+- `src/index.css`
+- `todo.md`
+- Artefactos de Graphify generados anteriormente en `graphify-out/`.
+
 Análisis de la implementación con Graphify (237 nodos, 340 relaciones tras la preparación del MVP) y contraste con `PRD.md`.
 
 ## Prioridad alta
@@ -71,7 +107,7 @@ Análisis de la implementación con Graphify (237 nodos, 340 relaciones tras la 
 - [ ] Conectar este código a un repositorio Git y confirmar en Vercel el directorio raíz que contiene `package.json`.
 - [ ] En el proyecto Vercel, confirmar preset Vite, instalación `npm ci`, build `npm run build` y salida `dist`; no añadir configuración duplicada si Vercel detecta esos valores.
 - [ ] Proporcionar el video final MP4 y subtítulos WebVTT en inglés. Si se alojan en otro dominio, confirmar HTTPS, compatibilidad de entrega y CORS para el archivo `.vtt`; después establecer ambas variables opcionales en Vercel.
-- [ ] Confirmar cada nombre de fotógrafo y los derechos de terceros para las imágenes Pexels; la licencia general de la plataforma no prueba permisos específicos de cada imagen. Mantener atribución OpenStreetMap.
+- [ ] Confirmar cada nombre de fotógrafo y los derechos de terceros para las imágenes Pexels; la licencia general de la plataforma no prueba permisos específicos de cada imagen.
 - [ ] Publicar una Preview y comprobar en navegador enlaces internos, EN/ES, imágenes, mapa, reproducción, subtítulos, transcripción y responsive; registrar URL y resultado.
 - [ ] Validar visualmente teclado/foco, contraste, zoom al 200%, orientación horizontal y carga externa del mapa en la Preview.
 - [ ] Verificar la URL de producción después de publicar. No se ha realizado despliegue ni se declara producción completada.
@@ -139,5 +175,5 @@ Referencia de configuración: [builds de Vercel](https://vercel.com/docs/builds)
 - [x] Valores Vercel documentados: preset Vite, instalación `npm ci`, build `npm run build`, salida `dist`; el sitio estático no necesita rewrites.
 - [ ] No se encontró `.git` en el directorio del proyecto ni en sus carpetas padre inmediatas; tampoco hay URL remota conocida. Crear/importar el repositorio correcto y confirmar la raíz `Amish-main` en GitHub/Vercel requiere una acción manual.
 - [ ] Abrir una Preview de Vercel y comprobar visualmente idioma, teclado, imágenes, mapa y responsive; no se ha publicado ni verificado URL de Preview o producción.
-- [ ] Confirmar la autoría/derechos de cada imagen Pexels. El nombre de fotógrafo existente no se ha verificado individualmente; mantener la atribución de OpenStreetMap.
+- [ ] Confirmar la autoría/derechos de cada imagen Pexels. El nombre de fotógrafo existente no se ha verificado individualmente.
 - [ ] Recibir el MP4 y WebVTT definitivos para probar la reproducción; esto no bloquea una Preview porque el fallback bilingüe está incluido.

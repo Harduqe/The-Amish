@@ -1,11 +1,16 @@
 import { ExternalLink } from 'lucide-react';
 import { useLang } from '@/i18n';
 import { intro, photoCredits, ui } from '@/content';
+import { pexelsImageUrl, pexelsSrcSet } from '@/imageSources';
 
 export default function Introduction() {
   const { lang } = useLang();
   const firstPhoto = photoCredits.find((photo) => photo.url.includes('/photos/33777986/'));
   const secondPhoto = photoCredits.find((photo) => photo.url.includes('/photos/34627886/'));
+  const firstPhotoUrl = firstPhoto?.url ?? 'https://images.pexels.com/photos/33777986/pexels-photo-33777986.jpeg?auto=compress&cs=tinysrgb&h=900&w=1200';
+  const secondPhotoUrl = secondPhoto?.url ?? 'https://images.pexels.com/photos/34627886/pexels-photo-34627886.jpeg?auto=compress&cs=tinysrgb&h=700&w=1000';
+  const firstWidths = [480, 720, 960, 1200];
+  const secondWidths = [400, 600, 800, 1000];
 
   return (
     <section id="culture" tabIndex={-1} className="page-section bg-cream-50">
@@ -50,25 +55,41 @@ export default function Introduction() {
 
           <div className="space-y-6">
             <figure>
-              <img
-                src="https://images.pexels.com/photos/33777986/pexels-photo-33777986.jpeg?auto=compress&cs=tinysrgb&h=900&w=1200"
-                alt={firstPhoto?.alt[lang] ?? intro.figureCaption[lang]}
-                loading="lazy"
-                className="content-card aspect-[4/5] w-full bg-cream-200 object-cover"
-                decoding="async"
-              />
+              <picture>
+                <source type="image/avif" srcSet={pexelsSrcSet(firstPhotoUrl, firstWidths, 4 / 3, 'avif')} sizes="(min-width: 1024px) 35vw, (min-width: 640px) 80vw, calc(100vw - 2rem)" />
+                <source type="image/webp" srcSet={pexelsSrcSet(firstPhotoUrl, firstWidths, 4 / 3, 'webp')} sizes="(min-width: 1024px) 35vw, (min-width: 640px) 80vw, calc(100vw - 2rem)" />
+                <img
+                  src={pexelsImageUrl(firstPhotoUrl, 1200, 4 / 3)}
+                  srcSet={pexelsSrcSet(firstPhotoUrl, firstWidths, 4 / 3)}
+                  sizes="(min-width: 1024px) 35vw, (min-width: 640px) 80vw, calc(100vw - 2rem)"
+                  width="1200"
+                  height="900"
+                  alt={firstPhoto?.alt[lang] ?? intro.figureCaption[lang]}
+                  loading="lazy"
+                  className="content-card aspect-[4/5] w-full bg-cream-200 object-cover"
+                  decoding="async"
+                />
+              </picture>
               <figcaption className="mt-2 text-xs text-bark-700/80">
                 {lang === 'en' ? 'Photo by' : 'Foto de'} {firstPhoto?.photographer} / Pexels
               </figcaption>
             </figure>
             <figure>
-              <img
-                src="https://images.pexels.com/photos/34627886/pexels-photo-34627886.jpeg?auto=compress&cs=tinysrgb&h=700&w=1000"
-                alt={secondPhoto?.alt[lang] ?? intro.figureCaption[lang]}
-                loading="lazy"
-                className="content-card aspect-[4/3] w-full bg-cream-200 object-cover"
-                decoding="async"
-              />
+              <picture>
+                <source type="image/avif" srcSet={pexelsSrcSet(secondPhotoUrl, secondWidths, 10 / 7, 'avif')} sizes="(min-width: 1024px) 35vw, (min-width: 640px) 80vw, calc(100vw - 2rem)" />
+                <source type="image/webp" srcSet={pexelsSrcSet(secondPhotoUrl, secondWidths, 10 / 7, 'webp')} sizes="(min-width: 1024px) 35vw, (min-width: 640px) 80vw, calc(100vw - 2rem)" />
+                <img
+                  src={pexelsImageUrl(secondPhotoUrl, 1000, 10 / 7)}
+                  srcSet={pexelsSrcSet(secondPhotoUrl, secondWidths, 10 / 7)}
+                  sizes="(min-width: 1024px) 35vw, (min-width: 640px) 80vw, calc(100vw - 2rem)"
+                  width="1000"
+                  height="700"
+                  alt={secondPhoto?.alt[lang] ?? intro.figureCaption[lang]}
+                  loading="lazy"
+                  className="content-card aspect-[4/3] w-full bg-cream-200 object-cover"
+                  decoding="async"
+                />
+              </picture>
               <figcaption className="mt-2 text-xs text-bark-700/80">
                 {lang === 'en' ? 'Photo by' : 'Foto de'} {secondPhoto?.photographer} / Pexels
               </figcaption>

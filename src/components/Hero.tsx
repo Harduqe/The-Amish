@@ -1,20 +1,32 @@
 import { Play, ArrowDown } from 'lucide-react';
 import { useLang } from '@/i18n';
-import { hero, ui } from '@/content';
+import { hero, photoCredits, ui } from '@/content';
+import { pexelsImageUrl, pexelsSrcSet } from '@/imageSources';
 
 export default function Hero() {
   const { lang } = useLang();
+  const heroImage = photoCredits.find((photo) => photo.url.includes('/photos/37410126/'))?.url
+    ?? 'https://images.pexels.com/photos/37410126/pexels-photo-37410126.jpeg?auto=compress&cs=tinysrgb&h=1200&w=1920';
+  const heroWidths = [640, 960, 1280, 1920];
 
   return (
     <section id="home" tabIndex={-1} className="hero-section relative flex min-h-[82svh] items-center overflow-hidden sm:min-h-screen">
-      <img
-        src="https://images.pexels.com/photos/37410126/pexels-photo-37410126.jpeg?auto=compress&cs=tinysrgb&h=1200&w=1920"
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover"
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-      />
+      <picture className="absolute inset-0 h-full w-full">
+        <source type="image/avif" srcSet={pexelsSrcSet(heroImage, heroWidths, 1.6, 'avif')} sizes="100vw" />
+        <source type="image/webp" srcSet={pexelsSrcSet(heroImage, heroWidths, 1.6, 'webp')} sizes="100vw" />
+        <img
+          src={pexelsImageUrl(heroImage, 1920, 1.6)}
+          srcSet={pexelsSrcSet(heroImage, heroWidths, 1.6)}
+          sizes="100vw"
+          width="1920"
+          height="1200"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
       <div className="absolute inset-0 bg-gradient-to-r from-bark-900/85 via-bark-900/55 to-bark-900/15" />
       <div className="section-frame relative py-32 sm:py-36">
         <div className="max-w-3xl">

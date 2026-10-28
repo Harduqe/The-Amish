@@ -1,14 +1,19 @@
-# Graph Report - Amish-main  (2026-10-26)
+# Graph Report - Amish-main  (2026-10-28)
 
 ## Corpus Check
-- 27 files · ~15,597 words
+- 27 files · ~16,465 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 3 file(s) not represented in the graph (top: .example 1, (none) 1, .css 1)
 
 ## Summary
-- 237 nodes · 340 edges · 16 communities (10 shown, 6 thin omitted)
+- 242 nodes · 346 edges · 15 communities (10 shown, 5 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `49549db5`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - App.tsx
@@ -19,7 +24,6 @@
 - devDependencies
 - 13. Requisitos funcionales detallados
 - 7. Arquitectura de información
-- main.tsx
 - Mejoras propuestas para la single page
 - tsconfig.json
 - AGENTS.md
@@ -35,7 +39,7 @@
 7. `7. Arquitectura de información` - 11 edges
 8. `13. Requisitos funcionales detallados` - 11 edges
 9. `lucide-react` - 9 edges
-10. `Mejoras propuestas para la single page` - 8 edges
+10. `Mejoras propuestas para la single page` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Observaciones del análisis` --references--> `VideoSection()`  [INFERRED]
@@ -52,11 +56,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (16 total, 6 thin omitted)
+## Communities (15 total, 5 thin omitted)
 
 ### Community 0 - "App.tsx"
-Cohesion: 0.13
-Nodes (36): lucide-react, react, Page(), DiscoverRegion(), EnglishToolkit(), Footer(), GettingThere(), icons (+28 more)
+Cohesion: 0.12
+Nodes (37): lucide-react, react, App(), Page(), DiscoverRegion(), EnglishToolkit(), Footer(), GettingThere() (+29 more)
 
 ### Community 1 - "PRODUCT REQUIREMENTS DOCUMENT (PRD)"
 Cohesion: 0.05
@@ -64,7 +68,7 @@ Nodes (40): 10. Requisitos técnicos, 11. Requisitos de accesibilidad, 12. Requi
 
 ### Community 2 - "package.json"
 Cohesion: 0.07
-Nodes (30): dependencies, lucide-react, react, react-dom, @supabase/supabase-js, name, private, scripts (+22 more)
+Nodes (31): dependencies, lucide-react, react, react-dom, @supabase/supabase-js, name, private, scripts (+23 more)
 
 ### Community 3 - "compilerOptions"
 Cohesion: 0.10
@@ -87,32 +91,32 @@ Cohesion: 0.18
 Nodes (11): 7.10 Footer, 7.1 Header y navegación principal, 7.2 Hero — presentación del destino, 7.3 Section 01 — Introduction to the Place, 7.4 Section 02 — Discover the Region, 7.5 Section 03 — Getting There & Moving Around, 7.6 Section 04 — Watch the Educational Video, 7.7 Section 05 — Travel Responsibly (+3 more)
 
 ### Community 9 - "Mejoras propuestas para la single page"
-Cohesion: 0.10
-Nodes (20): Afirmaciones que requieren verificación adicional antes de publicarlas con cifras o como reglas generales, Bloqueado por acceso/contexto, Cambios locales, Comprobaciones de integración, Comprobado en este pase, Comprobado en la preparación MVP, Configuración confirmada, Dependencias: reporte previo, no repetido en esta ronda (+12 more)
+Cohesion: 0.08
+Nodes (24): Afirmaciones que requieren verificación adicional antes de publicarlas con cifras o como reglas generales, Archivos de esta corrección, Bloqueado por acceso/contexto, Cambios locales, Comprobaciones de integración, Comprobado en este pase, Comprobado en la preparación MVP, Configuración confirmada (+16 more)
 
 ### Community 15 - "Lancaster Amish — Responsible Tourism Guide"
-Cohesion: 0.33
-Nodes (5): Content and sources, Lancaster Amish — Responsible Tourism Guide, Optional educational video, Run locally, Vercel Preview settings
+Cohesion: 0.29
+Nodes (6): Content and sources, Lancaster Amish — Responsible Tourism Guide, Optional educational video, Optional Street View panorama, Run locally, Vercel Preview settings
 
 ## Knowledge Gaps
 - **8 isolated node(s):** `@supabase/supabase-js`, `@types/react`, `@types/react-dom`, `autoprefixer`, `eslint` (+3 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 156 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 160 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Observaciones del análisis` connect `Mejoras propuestas para la single page` to `App.tsx`?**
-  _High betweenness centrality (0.074) - this node is a cross-community bridge._
+  _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **What connects `@supabase/supabase-js`, `@types/react`, `@types/react-dom` to the rest of the system?**
   _8 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.12670068027210885 - nodes in this community are weakly interconnected._
-- **Why does `react` connect `App.tsx` to `main.tsx`, `package.json`?**
-  _High betweenness centrality (0.072) - this node is a cross-community bridge._
+  _Cohesion score 0.11840120663650075 - nodes in this community are weakly interconnected._
+- **Why does `react` connect `App.tsx` to `package.json`?**
+  _High betweenness centrality (0.077) - this node is a cross-community bridge._
 - **Should `PRODUCT REQUIREMENTS DOCUMENT (PRD)` be split into smaller, more focused modules?**
   _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.0677361853832442 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06554621848739496 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._

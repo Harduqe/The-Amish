@@ -24,12 +24,16 @@ The production build is written to `dist/`. There is no separate test script.
 
 The final video has not yet been supplied. The video section remains useful without it: visitors can read the bilingual narration, subtitle summaries and transcript, along with production suggestions.
 
-When the media is ready, set these optional variables in a local `.env` file or the Vercel project settings:
+When the media is ready, set these optional variables in a local `.env.local` file or the Vercel project settings:
 
 - `VITE_EDUCATIONAL_VIDEO_URL`: direct HTTPS URL to a public MP4 file.
 - `VITE_EDUCATIONAL_VIDEO_CAPTIONS_EN`: direct HTTPS URL to an English WebVTT (`.vtt`) captions file.
 
 Leave the values empty until the media is available. These `VITE_*` values are included in the browser bundle; never put secrets or credentials in them. See `.env.example` for the blank template. If the media cannot be loaded, the transcript remains available.
+
+## Optional Street View panorama
+
+The region viewer displays Google Street View panoramas for selected public visitor locations when `VITE_GOOGLE_MAPS_EMBED_API_KEY` is configured in `.env.local` or the deployment environment. Enable the Maps Embed API and restrict the browser-visible key to the Embed API and the site's allowed HTTP referrers. This key is included in the browser bundle and must not be treated as a secret. Without it, the viewer shows a bilingual setup message and no map. Street View shows captured imagery, not a live feed; panorama coverage and capture dates can vary.
 
 ## Vercel Preview settings
 
