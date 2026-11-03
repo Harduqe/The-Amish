@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   "src/components/DiscoverRegion.tsx": {
-    "mtime": 1793206779.9770036,
-    "seen": 1793206819.3344803,
-    "ast_hash": "8a7dcbf2bd1d625fbebeb0f8f6615235",
+    "mtime": 1793673144.8984413,
+    "seen": 1793673168.7752879,
+    "ast_hash": "f3495601bda4f9ac97bb7f9e577c878a",
     "semantic_hash": ""
   },
   "src/components/EnglishToolkit.tsx": {
@@ -48,27 +48,27 @@
     "semantic_hash": ""
   },
   "src/components/Header.tsx": {
-    "mtime": 1793042589.2350407,
-    "seen": 1793042832.3018782,
-    "ast_hash": "3177d7c3aacfbc2c44d431739724faf3",
+    "mtime": 1793208642.635903,
+    "seen": 1793672828.2879274,
+    "ast_hash": "5e1801755f62f9bf0a1b11b84cc1661c",
     "semantic_hash": ""
   },
   "src/components/Hero.tsx": {
-    "mtime": 1793041528.0547855,
-    "seen": 1793041558.664054,
-    "ast_hash": "2451843eadb055bbdd4014bc1a9f2bd2",
+    "mtime": 1793208529.9118772,
+    "seen": 1793672828.287929,
+    "ast_hash": "1271d66aed557320be4d2ed9c163bfd0",
     "semantic_hash": ""
   },
   "src/components/Introduction.tsx": {
-    "mtime": 1793044250.0950043,
-    "seen": 1793044543.8931415,
-    "ast_hash": "79acd22a0884d0c5d4b829d8f8782edc",
+    "mtime": 1793673136.3227968,
+    "seen": 1793673168.7753057,
+    "ast_hash": "c4294e7f7db6dd2bcc4dbfff77d5c5f6",
     "semantic_hash": ""
   },
   "src/components/ResponsibleTourism.tsx": {
-    "mtime": 1793041528.0577857,
-    "seen": 1793041558.6640582,
-    "ast_hash": "093f2d7429d8afb6f7a7ccb7c5f8284f",
+    "mtime": 1793673632.2917757,
+    "seen": 1793673696.8072221,
+    "ast_hash": "85bc7385f3b636357304dbdcfd8b6fed",
     "semantic_hash": ""
   },
   "src/components/Sources.tsx": {
@@ -78,15 +78,15 @@
     "semantic_hash": ""
   },
   "src/components/VideoSection.tsx": {
-    "mtime": 1793044354.2163656,
-    "seen": 1793044543.8931465,
-    "ast_hash": "7b9dca99a8b856e70ac31bc0f632d6c1",
+    "mtime": 1793673632.5612128,
+    "seen": 1793673696.8072271,
+    "ast_hash": "0bcc21223572ebaa1386498cb84a50cd",
     "semantic_hash": ""
   },
   "src/content.ts": {
-    "mtime": 1793206792.8026452,
-    "seen": 1793206819.3344922,
-    "ast_hash": "b78136be530355145ffc31506eb282e6",
+    "mtime": 1793672794.878217,
+    "seen": 1793672828.2879372,
+    "ast_hash": "3ddbf48ae374e9140f2b49abf491d79e",
     "semantic_hash": ""
   },
   "src/i18n.tsx": {
@@ -156,9 +156,9 @@
     "semantic_hash": ""
   },
   "todo.md": {
-    "mtime": 1793206812.907948,
-    "seen": 1793206819.3345056,
-    "ast_hash": "1970d33c439f9cc881c48b29abcda38f",
+    "mtime": 1793208616.8463964,
+    "seen": 1793672828.2879643,
+    "ast_hash": "1384a0dbc8ea399d81f7694911a24a28",
     "semantic_hash": ""
   },
   "public/favicon.svg": {
@@ -168,9 +168,27 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1793059648.3886316,
-    "seen": 1793202951.1147048,
-    "ast_hash": "388e6cab061497cb67a5901dee70897b",
+    "mtime": 1793672807.9533708,
+    "seen": 1793672828.287961,
+    "ast_hash": "6c7fee6caf94c3fe91ef8afc63c348c4",
+    "semantic_hash": ""
+  },
+  "src/imageSources.ts": {
+    "mtime": 1793208529.6925862,
+    "seen": 1793672828.2879417,
+    "ast_hash": "e69582910ed60c935ec6196f37e24398",
+    "semantic_hash": ""
+  },
+  "public/video/AmishVideo.mp4": {
+    "mtime": 1793672430.045075,
+    "seen": 1793672828.2879672,
+    "ast_hash": "947fbe22998a01f0351424d686a4ab9d",
+    "semantic_hash": ""
+  },
+  "package-lock.json": {
+    "mtime": 1793042714.1301155,
+    "seen": 1793672828.2879694,
+    "ast_hash": "f1062968b70474b02e4b001314533c3c",
     "semantic_hash": ""
   }
 }

@@ -20,16 +20,16 @@ npm run preview
 
 The production build is written to `dist/`. There is no separate test script.
 
-## Optional educational video
+## Educational video
 
-The final video has not yet been supplied. The video section remains useful without it: visitors can read the bilingual narration, subtitle summaries and transcript, along with production suggestions.
+The educational video and its English WebVTT captions are included in `public/video/`. The player uses these local assets by default. Optional environment variables can override them:
 
 When the media is ready, set these optional variables in a local `.env.local` file or the Vercel project settings:
 
 - `VITE_EDUCATIONAL_VIDEO_URL`: direct HTTPS URL to a public MP4 file.
 - `VITE_EDUCATIONAL_VIDEO_CAPTIONS_EN`: direct HTTPS URL to an English WebVTT (`.vtt`) captions file.
 
-Leave the values empty until the media is available. These `VITE_*` values are included in the browser bundle; never put secrets or credentials in them. See `.env.example` for the blank template. If the media cannot be loaded, the transcript remains available.
+These `VITE_*` values are included in the browser bundle; never put secrets or credentials in them. See `.env.example` for the blank template. If the media cannot be loaded, the transcript remains available.
 
 ## Optional Street View panorama
 
@@ -44,7 +44,7 @@ Connect the GitHub repository and use the project root containing this `package.
 - Build command: `npm run build`
 - Output directory: `dist`
 
-The page uses in-page hash navigation and does not need `vercel.json` or rewrite rules. Add the optional video variables only after the final public media URLs are available. A Preview deployment still needs to be opened and checked in Vercel before it can be considered verified.
+The page uses in-page hash navigation and does not need `vercel.json` or rewrite rules. Include the `public/video/` assets in deployments. A Preview deployment still needs to be opened and checked in Vercel before it can be considered verified.
 
 ## Content and sources
 

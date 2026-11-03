@@ -3,12 +3,38 @@ import { Captions, ChevronDown } from 'lucide-react';
 import { useLang } from '@/i18n';
 import { videoSection, ui } from '@/content';
 
+const spokenTranscript = `00:00 Lancaster County and the Amish community. Introduction and location. Lancaster County is in South East Pennsylvania.
+
+00:11 It has a city with museum and restaurant and also a quiet countryside. With farms and a small towns.
+
+00:21 Amish country, it has one of the oldest and biggest Amish communities in the United States. History and faith. The Amish group started in Europe in the 16th century. The first big group come to Lancaster in the early 18th century.
+
+00:41 Religion. They are Christians, people decide to get baptized and join the church when they are adults.
+
+00:50 Daily life and technology. The ordinance. This is a set of rules for the community. Each church group has different rules, rules for clothes, work and technology.
+
+01:11 They do not hate modern things. They just use technology carefully. For example, some people do not use public electricity or own cars, but they use other power sources when needed.
+
+01:20 Languages, Pennsylvania Dutch. They speak this language at home. English, they learn English for school and to talk to visitors. Classic German, they use it for church and religion reading.
+
+01:41 You can talk to them in English. Work and local life. Amish people work in farming, woodworking, construction, and small shops.
+
+02:00 Living together. Amish and non-Amish neighbors live and work together in the same area. You can support local businesses, but please respect their private life.
+
+02:20 Tips for visitors: respect privacy. Always ask before taking a photo of people. Do not enter private homes or farms. Remember that not all Amish families have the exact same rules.
+
+02:40 How to get around. You can travel to Lancaster County by train, bus, or car. Walking or riding a basic bicycle are great options because the land is flat. Public transport does not go to rural roads, so it is best to stay in a town center.
+
+03:00 Useful phrases for directions: “Excuse me, how do I get to Lancaster station?” “Follow the signs to the town center.” “Go north on Route 222. Then turn left at the second traffic light. The marker is next to the plaza near the visitor center.”
+
+03:31 Road safety rules. Slow down when you see a horse carriage. Do not pass a carriage on a sharp curve. Give extra space when you try to pass a carriage. Do not use the horn near horses because it can scare them.`;
+
 export default function VideoSection() {
   const { lang } = useLang();
   const [open, setOpen] = useState(false);
   const [mediaError, setMediaError] = useState(false);
-  const videoSrc = import.meta.env.VITE_EDUCATIONAL_VIDEO_URL;
-  const captionsSrc = import.meta.env.VITE_EDUCATIONAL_VIDEO_CAPTIONS_EN;
+  const videoSrc = import.meta.env.VITE_EDUCATIONAL_VIDEO_URL || '/video/AmishVideo.mp4';
+  const captionsSrc = import.meta.env.VITE_EDUCATIONAL_VIDEO_CAPTIONS_EN || '/video/AmishVideo.en.vtt';
   const captionsAvailable = Boolean(videoSrc && captionsSrc && !mediaError);
 
   return (
@@ -82,35 +108,13 @@ export default function VideoSection() {
           className="content-card mt-6 border border-cream-100/15 bg-bark-800/60 p-5 sm:p-7"
         >
           <h3 className="font-serif text-xl font-semibold">{videoSection.transcriptLabel[lang]}</h3>
-          <div className="mt-4 space-y-5">
-            {videoSection.minutes.map((m, i) => (
-              <div key={i}>
-                <p className="text-sm font-semibold text-sage-300">{m.label[lang]}</p>
-                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-cream-100/60">{ui.narration[lang]}</p>
-                <p className="mt-1 max-w-prose text-sm leading-relaxed text-cream-100/90">{m.text[lang]}</p>
-                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-cream-100/60">{ui.subtitleSummary[lang]}</p>
-                <p className="mt-1 max-w-prose text-sm leading-relaxed text-cream-100/80">{m.subtitle[lang]}</p>
-                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-cream-100/60">{ui.visualSuggestion[lang]}</p>
-                <p className="mt-1 max-w-prose text-sm leading-relaxed text-cream-100/80">{m.visual[lang]}</p>
-                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-cream-100/60">{ui.audioCue[lang]}</p>
-                <p className="mt-1 max-w-prose text-sm leading-relaxed text-cream-100/80">{m.audio[lang]}</p>
-                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-cream-100/60">{ui.videoReferences[lang]}:</span>
-                  {m.references.map((reference) => (
-                    <a
-                      key={reference.url}
-                      href={reference.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="external-link inline-flex min-h-11 items-center text-sm text-sage-300 hover:text-cream-50"
-                    >
-                      {reference.title}
-                      <span className="sr-only"> — {ui.opensNewTab[lang]}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="mt-4 border-b border-cream-100/15 pb-6">
+            <p className="text-sm font-semibold text-sage-300">
+              {lang === 'en' ? 'Spoken transcript (English)' : 'Transcripción del audio (inglés)'}
+            </p>
+            <p className="mt-3 max-w-prose whitespace-pre-line text-sm leading-relaxed text-cream-100/90">
+              {spokenTranscript}
+            </p>
           </div>
         </div>
       </div>

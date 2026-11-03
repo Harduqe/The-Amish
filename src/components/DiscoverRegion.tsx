@@ -6,8 +6,11 @@ import { region, ui } from '@/content';
 export default function DiscoverRegion() {
   const { lang } = useLang();
   const [activePointIndex, setActivePointIndex] = useState(() => {
+    const lancasterCityPanorama = region.points.findIndex(
+      (point) => point.name.en === 'Lancaster City' && Boolean(point.pano || point.coordinates),
+    );
     const firstVerifiedPanorama = region.points.findIndex((point) => Boolean(point.pano || point.coordinates));
-    return firstVerifiedPanorama >= 0 ? firstVerifiedPanorama : 0;
+    return lancasterCityPanorama >= 0 ? lancasterCityPanorama : firstVerifiedPanorama >= 0 ? firstVerifiedPanorama : 0;
   });
   const activePoint = region.points[activePointIndex];
   const mapsKey = import.meta.env.VITE_GOOGLE_MAPS_EMBED_API_KEY?.trim();

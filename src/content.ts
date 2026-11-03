@@ -247,12 +247,12 @@ export const videoSection = {
     es: 'Cómo llegar a Lancaster County y explorar el País Amish con responsabilidad',
   },
   durationNote: {
-    en: 'Approx. 4 minutes — English narration with English and Spanish subtitle summaries.',
-    es: 'Aprox. 4 minutos — narración en inglés con resúmenes de subtítulos en inglés y español.',
+    en: 'Approx. 4 minutes — English narration with English captions and transcript.',
+    es: 'Aprox. 4 minutos — narración en inglés con subtítulos y transcripción en inglés.',
   },
   placeholderNote: {
-    en: 'The final educational video is not available yet. Read the narration, subtitle summaries and visual suggestions in the transcript below.',
-    es: 'El video educativo definitivo aún no está disponible. Consulte la narración, los resúmenes de subtítulos y las propuestas visuales en la transcripción.',
+    en: 'The video could not be displayed. You can still read its transcript below.',
+    es: 'No se pudo mostrar el video. Aun así, puede leer la transcripción a continuación.',
   },
   unsupported: {
     en: 'Your browser cannot play this video. Read the transcript below instead.',
@@ -262,7 +262,7 @@ export const videoSection = {
     en: 'The video could not be loaded. Read the transcript below instead.',
     es: 'No se pudo cargar el video. Puede leer la transcripción a continuación.',
   },
-  transcriptLabel: { en: 'Transcript', es: 'Transcripción' },
+  transcriptLabel: { en: 'Video transcript and notes', es: 'Transcripción y notas del video' },
   showTranscript: { en: 'Show transcript', es: 'Mostrar transcripción' },
   hideTranscript: { en: 'Hide transcript', es: 'Ocultar transcripción' },
   minutes: [
