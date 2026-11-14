@@ -1,17 +1,17 @@
-# Graph Report - Amish-main  (2026-11-02)
+# Graph Report - Amish-main  (2026-11-13)
 
 ## Corpus Check
-- 28 files · ~17,619 words
+- 29 files · ~18,824 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: .example 1, (none) 1, .vtt 1)
 
 ## Summary
-- 247 nodes · 384 edges · 16 communities (11 shown, 5 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.95)
+- 254 nodes · 405 edges · 22 communities (17 shown, 5 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `96100ec8`
+- Built from commit: `23017e9e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,7 +21,7 @@
 - package.json
 - compilerOptions
 - compilerOptions
-- scripts
+- 7. Arquitectura de información
 - 13. Requisitos funcionales detallados
 - scripts
 - 10. Requisitos técnicos
@@ -29,18 +29,24 @@
 - tsconfig.json
 - AGENTS.md
 - Lancaster Amish — Responsible Tourism Guide
+- 15. Fases de implementación
+- 9. Requisitos de diseño visual
+- 4. Usuarios objetivo
+- 3. Objetivos del producto
+- 6. Alcance funcional
+- 8. Requisitos lingüísticos y de contenido
 
 ## God Nodes (most connected - your core abstractions)
-1. `useLang()` - 23 edges
+1. `useLang()` - 25 edges
 2. `PRODUCT REQUIREMENTS DOCUMENT (PRD)` - 21 edges
 3. `compilerOptions` - 18 edges
 4. `compilerOptions` - 14 edges
 5. `Page()` - 13 edges
-6. `ui` - 12 edges
-7. `7. Arquitectura de información` - 11 edges
-8. `13. Requisitos funcionales detallados` - 11 edges
-9. `lucide-react` - 10 edges
-10. `Mejoras propuestas para la single page` - 10 edges
+6. `lucide-react` - 12 edges
+7. `ui` - 12 edges
+8. `7. Arquitectura de información` - 11 edges
+9. `13. Requisitos funcionales detallados` - 11 edges
+10. `react` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Observaciones del análisis` --references--> `VideoSection()`  [INFERRED]
@@ -57,15 +63,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (16 total, 5 thin omitted)
+## Communities (22 total, 5 thin omitted)
 
 ### Community 0 - "App.tsx"
-Cohesion: 0.12
-Nodes (41): lucide-react, react, App(), Page(), DiscoverRegion(), EnglishToolkit(), Footer(), GettingThere() (+33 more)
+Cohesion: 0.10
+Nodes (46): lucide-react, react, App(), Page(), DiscoverRegion(), EnglishToolkit(), speakerStyles, Footer() (+38 more)
 
 ### Community 1 - "PRODUCT REQUIREMENTS DOCUMENT (PRD)"
-Cohesion: 0.04
-Nodes (46): 11. Requisitos de accesibilidad, 12. Requisitos de turismo responsable, 14. Criterios de calidad antes de entregar, 15. Fases de implementación, 16. Riesgos y mitigaciones, 17. Definición de terminado (Definition of Done), 18. Supuestos y decisiones pendientes, 19. Resultado esperado (+38 more)
+Cohesion: 0.15
+Nodes (12): 11. Requisitos de accesibilidad, 12. Requisitos de turismo responsable, 14. Criterios de calidad antes de entregar, 16. Riesgos y mitigaciones, 17. Definición de terminado (Definition of Done), 18. Supuestos y decisiones pendientes, 19. Resultado esperado, 1. Resumen del producto (+4 more)
 
 ### Community 2 - "package.json"
 Cohesion: 0.08
@@ -79,17 +85,17 @@ Nodes (19): compilerOptions, allowImportingTsExtensions, baseUrl, isolatedModule
 Cohesion: 0.12
 Nodes (15): compilerOptions, allowImportingTsExtensions, isolatedModules, lib, module, moduleDetection, moduleResolution, noEmit (+7 more)
 
-### Community 5 - "scripts"
-Cohesion: 0.22
-Nodes (7): dependencies, lucide-react@^0.446.0, react@^18.3.1, react-dom@^18.3.1, @supabase/supabase-js@^2.57.4, react-dom, @supabase/supabase-js
+### Community 5 - "7. Arquitectura de información"
+Cohesion: 0.18
+Nodes (11): 7.10 Footer, 7.1 Header y navegación principal, 7.2 Hero — presentación del destino, 7.3 Section 01 — Introduction to the Place, 7.4 Section 02 — Discover the Region, 7.5 Section 03 — Getting There & Moving Around, 7.6 Section 04 — Watch the Educational Video, 7.7 Section 05 — Travel Responsibly (+3 more)
 
 ### Community 6 - "13. Requisitos funcionales detallados"
 Cohesion: 0.18
 Nodes (11): 13. Requisitos funcionales detallados, FR-01 — Navegación, FR-02 — Selector de idioma, FR-03 — Texto escrito, FR-04 — Video, FR-05 — Mapa, FR-06 — Recursos multimedia, FR-07 — Turismo responsable (+3 more)
 
 ### Community 7 - "scripts"
-Cohesion: 0.33
-Nodes (6): scripts, build, dev, lint, preview, typecheck
+Cohesion: 0.14
+Nodes (13): dependencies, lucide-react@^0.446.0, react@^18.3.1, react-dom@^18.3.1, @supabase/supabase-js@^2.57.4, scripts, build, dev (+5 more)
 
 ### Community 8 - "10. Requisitos técnicos"
 Cohesion: 0.40
@@ -97,11 +103,35 @@ Nodes (5): 10. Requisitos técnicos, Estructura sugerida de archivos, Rendimient
 
 ### Community 9 - "Mejoras propuestas para la single page"
 Cohesion: 0.08
-Nodes (24): Afirmaciones que requieren verificación adicional antes de publicarlas con cifras o como reglas generales, Archivos de esta corrección, Bloqueado por acceso/contexto, Cambios locales, Comprobaciones de integración, Comprobado en este pase, Comprobado en la preparación MVP, Configuración confirmada (+16 more)
+Nodes (25): Afirmaciones que requieren verificación adicional antes de publicarlas con cifras o como reglas generales, Archivos de esta corrección, Bloqueado por acceso/contexto, Cambios locales, Comprobaciones de integración, Comprobado en este pase, Comprobado en la preparación MVP, Configuración confirmada (+17 more)
 
 ### Community 15 - "Lancaster Amish — Responsible Tourism Guide"
 Cohesion: 0.29
 Nodes (6): Content and sources, Educational video, Lancaster Amish — Responsible Tourism Guide, Optional Street View panorama, Run locally, Vercel Preview settings
+
+### Community 16 - "15. Fases de implementación"
+Cohesion: 0.40
+Nodes (5): 15. Fases de implementación, Fase 1 — Preparación del contenido, Fase 2 — Estructura inicial, Fase 3 — Diseño visual y multimedia, Fase 4 — Validación y publicación
+
+### Community 17 - "9. Requisitos de diseño visual"
+Cohesion: 0.40
+Nodes (5): 9. Requisitos de diseño visual, Composición, Dirección visual, Paleta orientativa, Tipografía
+
+### Community 18 - "4. Usuarios objetivo"
+Cohesion: 0.50
+Nodes (4): 4. Usuarios objetivo, Usuario complementario: persona interesada en la cultura Amish, Usuario principal: estudiante y docente, Usuario secundario: turista potencial
+
+### Community 19 - "3. Objetivos del producto"
+Cohesion: 0.67
+Nodes (3): 3.1 Objetivos principales, 3.2 Indicadores de éxito, 3. Objetivos del producto
+
+### Community 20 - "6. Alcance funcional"
+Cohesion: 0.67
+Nodes (3): 6.1 Funcionalidades incluidas en la primera versión, 6.2 Funcionalidades fuera del alcance inicial, 6. Alcance funcional
+
+### Community 21 - "8. Requisitos lingüísticos y de contenido"
+Cohesion: 0.67
+Nodes (3): 8. Requisitos lingüísticos y de contenido, Texto 1 — Introduction to the Place, Texto 2 — Getting There & Moving Around
 
 ## Knowledge Gaps
 - **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
@@ -109,17 +139,17 @@ Nodes (6): Content and sources, Educational video, Lancaster Amish — Responsib
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Mejoras propuestas para la single page` connect `Mejoras propuestas para la single page` to `App.tsx`?**
-  _High betweenness centrality (0.093) - this node is a cross-community bridge._
+- **Why does `Observaciones del análisis` connect `Mejoras propuestas para la single page` to `App.tsx`?**
+  _High betweenness centrality (0.089) - this node is a cross-community bridge._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.11717171717171718 - nodes in this community are weakly interconnected._
-- **Why does `Observaciones del análisis` connect `App.tsx` to `Mejoras propuestas para la single page`?**
-  _High betweenness centrality (0.088) - this node is a cross-community bridge._
-- **Should `PRODUCT REQUIREMENTS DOCUMENT (PRD)` be split into smaller, more focused modules?**
-  _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10087045570916539 - nodes in this community are weakly interconnected._
 - **Why does `react` connect `App.tsx` to `package.json`, `scripts`?**
-  _High betweenness centrality (0.074) - this node is a cross-community bridge._
+  _High betweenness centrality (0.075) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.08258258258258258 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
+- **Should `compilerOptions` be split into smaller, more focused modules?**
+  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
+- **Should `scripts` be split into smaller, more focused modules?**
+  _Cohesion score 0.14102564102564102 - nodes in this community are weakly interconnected._

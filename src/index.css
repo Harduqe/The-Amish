@@ -144,6 +144,96 @@
   .hero-section {
     background-color: #2e261e;
   }
+
+  .podcast-range {
+    --progress: 0%;
+    appearance: none;
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      #a7b89a var(--progress),
+      rgb(246 241 230 / 22%) var(--progress)
+    );
+    cursor: pointer;
+  }
+
+  .podcast-range:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .podcast-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    border: 2px solid #2e261e;
+    border-radius: 50%;
+    background: #fbf8f1;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 35%);
+  }
+
+  .podcast-range::-moz-range-thumb {
+    width: 1.1rem;
+    height: 1.1rem;
+    border: 2px solid #2e261e;
+    border-radius: 50%;
+    background: #fbf8f1;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 35%);
+  }
+
+  .podcast-range:focus-visible {
+    outline: 2px solid #fbf8f1;
+    outline-offset: 4px;
+  }
+
+  .podcast-range--volume {
+    height: 0.375rem;
+  }
+
+  .podcast-eq {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 1.25rem;
+  }
+
+  .podcast-eq i {
+    display: block;
+    width: 3px;
+    height: 100%;
+    border-radius: 2px;
+    background: #a7b89a;
+    transform: scaleY(0.3);
+    transform-origin: bottom;
+  }
+
+  .podcast-eq i:nth-child(2) { height: 70%; }
+  .podcast-eq i:nth-child(3) { height: 100%; }
+  .podcast-eq i:nth-child(4) { height: 55%; }
+  .podcast-eq i:nth-child(5) { height: 85%; }
+
+  .podcast-eq.is-playing i {
+    animation: podcast-eq 900ms ease-in-out infinite alternate;
+  }
+
+  .podcast-eq.is-playing i:nth-child(2) { animation-delay: -220ms; }
+  .podcast-eq.is-playing i:nth-child(3) { animation-delay: -440ms; }
+  .podcast-eq.is-playing i:nth-child(4) { animation-delay: -660ms; }
+  .podcast-eq.is-playing i:nth-child(5) { animation-delay: -110ms; }
+}
+
+@keyframes podcast-eq {
+  from { transform: scaleY(0.25); }
+  to { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .podcast-eq.is-playing i {
+    animation: none;
+    transform: scaleY(0.6);
+  }
 }
 
 @media (max-width: 640px) {

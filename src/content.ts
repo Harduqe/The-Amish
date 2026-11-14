@@ -366,12 +366,50 @@ export const responsible = {
   ],
 };
 
+export type PodcastSpeaker = 'host' | 'guide' | 'both';
+
+export interface PodcastTurn {
+  speaker: PodcastSpeaker;
+  text: string;
+}
+
 export const toolkit = {
   heading: { en: 'English Travel Toolkit', es: 'Kit de inglés para viajar' },
-  lead: {
-    en: 'Useful English expressions for planning a visit, asking for directions and travelling respectfully around Lancaster County.',
-    es: 'Expresiones útiles en inglés para planear una visita, pedir indicaciones y recorrer Lancaster County con respeto.',
+  series: { en: 'English Travel Toolkit – Podcast', es: 'English Travel Toolkit – Podcast' },
+  episodeTitle: { en: 'How to Travel Around Lancaster County', es: 'How to Travel Around Lancaster County' },
+  episodeDescription: {
+    en: 'A host and a travel guide talk through the practical basics of getting around Lancaster County: where to start, how to ask for directions, and how to share the road safely with horse-drawn buggies.',
+    es: 'Un presentador y un guía de viaje repasan lo básico para desplazarse por Lancaster County: por dónde empezar, cómo pedir indicaciones y cómo compartir la carretera con seguridad con los carruajes tirados por caballos.',
   },
+  audioNote: {
+    en: 'The episode is in English. Audio and transcript stay in English in both languages.',
+    es: 'El episodio está en inglés. El audio y la transcripción permanecen en inglés en ambos idiomas.',
+  },
+  speakers: {
+    host: { en: 'Speaker 1 – Host', es: 'Speaker 1 – Presentador' },
+    guide: { en: 'Speaker 2 – Travel Guide', es: 'Speaker 2 – Guía de viaje' },
+    both: { en: 'Both', es: 'Ambos' },
+  },
+  player: {
+    play: { en: 'Play episode', es: 'Reproducir episodio' },
+    pause: { en: 'Pause episode', es: 'Pausar episodio' },
+    seek: { en: 'Seek position', es: 'Posición de reproducción' },
+    volume: { en: 'Volume', es: 'Volumen' },
+    mute: { en: 'Mute', es: 'Silenciar' },
+    unmute: { en: 'Unmute', es: 'Activar sonido' },
+    unsupported: { en: 'Your browser does not support the audio element.', es: 'Su navegador no admite el elemento de audio.' },
+    error: {
+      en: 'The episode audio could not be loaded. Please try again later.',
+      es: 'No se pudo cargar el audio del episodio. Inténtelo de nuevo más tarde.',
+    },
+  },
+  transcriptHeading: { en: 'Follow the Conversation', es: 'Sigue la conversación' },
+  transcriptLead: {
+    en: 'Read along with the full episode. The transcript does not follow playback time.',
+    es: 'Siga el episodio completo. La transcripción no se sincroniza con el tiempo de reproducción.',
+  },
+  showTranscript: { en: 'Show transcript', es: 'Mostrar transcripción' },
+  hideTranscript: { en: 'Hide transcript', es: 'Ocultar transcripción' },
   glossaryHeading: { en: 'Cultural vocabulary', es: 'Vocabulario cultural' },
   glossaryLead: {
     en: 'Terms used in the guide. Meanings and practices can vary by community.',
@@ -415,48 +453,32 @@ export const toolkit = {
     },
   ],
   glossaryReferences: [
-    { title: 'Amish Studies — Frequently Asked Questions', url: 'https://groups.etown.edu/amishstudies/frequently-asked-questions/' },
-    { title: 'Technology — Amish Studies', url: 'https://groups.etown.edu/amishstudies/cultural-practices/technology/' },
-    { title: 'Pennsylvania Amish Lifestyle', url: 'https://www.discoverlancaster.com/amish/lifestyle/' },
+    { title: { en: 'Amish Studies — Frequently Asked Questions', es: 'Amish Studies — Preguntas frecuentes' }, url: 'https://groups.etown.edu/amishstudies/frequently-asked-questions/' },
+    { title: { en: 'Technology — Amish Studies', es: 'Tecnología — Amish Studies' }, url: 'https://groups.etown.edu/amishstudies/cultural-practices/technology/' },
+    { title: { en: 'Pennsylvania Amish Lifestyle', es: 'Estilo de vida amish en Pensilvania' }, url: 'https://www.discoverlancaster.com/amish/lifestyle/' },
   ],
-  blocks: [
-    {
-      title: { en: 'Asking for and giving directions', es: 'Pedir y dar indicaciones' },
-      items: [
-        'Excuse me, how can I get to Lancaster Station?',
-        'Follow the signs toward the town center.',
-        'It’s near the square, next to the visitor center.',
-      ],
-    },
-    {
-      title: { en: 'Imperatives', es: 'Imperativos' },
-      items: [
-        'Slow down when approaching a buggy.',
-        'Respect private property.',
-        'Check the schedule before you travel.',
-      ],
-    },
-    {
-      title: { en: 'Sequencing markers', es: 'Marcadores de secuencia' },
-      items: ['First, take the train to Lancaster.', 'Then, rent a bicycle.', 'After that, ride to Intercourse.', 'Finally, return before sunset.'],
-    },
-    {
-      title: { en: 'Compass points and prepositions', es: 'Puntos cardinales y preposiciones' },
-      items: ['Lancaster is west of Philadelphia.', 'Go north along Route 222.', 'The barn is next to the road.', 'Drive toward Strasburg.'],
-    },
-    {
-      title: { en: 'Recommendations (should / shouldn’t)', es: 'Recomendaciones (should / shouldn’t)' },
-      items: [
-        'Visitors should check transportation schedules.',
-        'You shouldn’t enter private property without permission.',
-        'You should keep a safe distance from buggies.',
-      ],
-    },
-    {
-      title: { en: 'Articles (a / an / the)', es: 'Artículos (a / an / the)' },
-      items: ['Lancaster is a county in Pennsylvania.', 'Take the Keystone Service to the station.', 'A buggy travels along a rural road.'],
-    },
-  ],
+  // Source: approved podcast script (verbatim). Do not add timestamps or edit the dialogue.
+  transcript: [
+    { speaker: 'host', text: 'Hello, everyone! Welcome to our travel podcast. Today, we are talking about how to visit Lancaster County and explore Amish Country.' },
+    { speaker: 'guide', text: "That's right! Lancaster is a beautiful county in Pennsylvania. There are many interesting places to visit." },
+    { speaker: 'host', text: 'Great! First, how can I get to Lancaster from Philadelphia?' },
+    { speaker: 'guide', text: "Well, first, take the Keystone Service train to Lancaster Station. Then, follow the signs toward the town center. It's near the square, next to the visitor center." },
+    { speaker: 'host', text: 'And how can I explore the countryside?' },
+    { speaker: 'guide', text: 'You can rent a bicycle. After that, ride toward Intercourse and enjoy the rural roads. Finally, return before sunset.' },
+    { speaker: 'host', text: 'That sounds interesting! What should I know before visiting Amish communities?' },
+    { speaker: 'guide', text: 'You should respect their traditions and private property. Also, keep a safe distance from horse-drawn buggies. Slow down when approaching a buggy.' },
+    { speaker: 'host', text: "That's good advice! Where are the Amish communities located?" },
+    { speaker: 'guide', text: 'Lancaster is west of Philadelphia. You can go north along Route 222 or drive toward Strasburg. You can also see farms and barns next to the roads.' },
+    { speaker: 'host', text: 'Have you ever visited Lancaster County?' },
+    { speaker: 'guide', text: 'Yes! I visited last year. I was riding my bicycle when I saw an Amish family traveling in a horse-drawn buggy.' },
+    { speaker: 'host', text: 'Really? What were you doing when you saw them?' },
+    { speaker: 'guide', text: 'I was exploring the countryside and taking pictures of the landscape. It was a beautiful experience!' },
+    { speaker: 'host', text: 'Amazing! Do you have any final recommendations for travelers?' },
+    { speaker: 'guide', text: "Yes! Visitors should check transportation schedules before traveling. You shouldn't enter private property without permission. And remember to drive carefully." },
+    { speaker: 'host', text: 'Excellent! So, remember: first, plan your route; then, explore the countryside; and finally, enjoy your visit respectfully.' },
+    { speaker: 'guide', text: "That's all for today's Travel Toolkit podcast. Thank you for listening!" },
+    { speaker: 'both', text: 'See you next time!' },
+  ] as PodcastTurn[],
 };
 
 export const sources = {

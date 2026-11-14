@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "src/components/EnglishToolkit.tsx": {
-    "mtime": 1793044399.7728643,
-    "seen": 1793044543.8931308,
-    "ast_hash": "7e8cad711668528d1872369b5ac2fc3e",
+    "mtime": 1794627770.5725567,
+    "seen": 1794627938.721269,
+    "ast_hash": "6569324818128e2c0067d14580973bc1",
     "semantic_hash": ""
   },
   "src/components/Footer.tsx": {
@@ -84,9 +84,9 @@
     "semantic_hash": ""
   },
   "src/content.ts": {
-    "mtime": 1793672794.878217,
-    "seen": 1793672828.2879372,
-    "ast_hash": "3ddbf48ae374e9140f2b49abf491d79e",
+    "mtime": 1794627758.7718744,
+    "seen": 1794627938.7212954,
+    "ast_hash": "fd17727ed5058670882e4afdab5621ec",
     "semantic_hash": ""
   },
   "src/i18n.tsx": {
@@ -183,6 +183,18 @@
     "mtime": 1793672430.045075,
     "seen": 1793672828.2879672,
     "ast_hash": "947fbe22998a01f0351424d686a4ab9d",
+    "semantic_hash": ""
+  },
+  "src/components/PodcastPlayer.tsx": {
+    "mtime": 1794626005.650408,
+    "seen": 1794626306.8603125,
+    "ast_hash": "ee5ccdd4ebe02e38568e1d91d4f2379a",
+    "semantic_hash": ""
+  },
+  "public/audio/Travel_Toolkit_Podcast.mp3": {
+    "mtime": 1794624573.531857,
+    "seen": 1794626306.8603497,
+    "ast_hash": "d12baf8d0e50d2bf06776dfd995d3641",
     "semantic_hash": ""
   },
   "package-lock.json": {
