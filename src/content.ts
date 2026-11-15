@@ -15,6 +15,8 @@ export const navItems: NavItem[] = [
   { id: 'video', label: { en: 'Video', es: 'Video' } },
   { id: 'responsible', label: { en: 'Responsible Tourism', es: 'Turismo Responsable' } },
   { id: 'toolkit', label: { en: 'English Toolkit', es: 'Kit de Inglés' } },
+  { id: 'places', label: { en: 'Places', es: 'Lugares' } },
+  { id: 'interaction', label: { en: 'Interaction', es: 'Interacción' } },
   { id: 'sources', label: { en: 'Sources', es: 'Fuentes' } },
 ];
 
@@ -49,7 +51,9 @@ export const ui = {
     video: { en: 'Section 04', es: 'Sección 04' },
     responsible: { en: 'Section 05', es: 'Sección 05' },
     toolkit: { en: 'Section 06', es: 'Sección 06' },
-    sources: { en: 'Section 07', es: 'Sección 07' },
+    places: { en: 'Section 07', es: 'Sección 07' },
+    interaction: { en: 'Section 08', es: 'Sección 08' },
+    sources: { en: 'Section 09', es: 'Sección 09' },
   },
 };
 
@@ -551,6 +555,42 @@ export const sources = {
         es: 'Pexels publica una licencia general para uso en sitios web; aquí no se verifican de forma independiente los permisos de cada imagen ni derechos de terceros.',
       },
     },
+    {
+      title: 'Wisconsin v. Yoder, 406 U.S. 205 (1972)',
+      org: 'Legal Information Institute, Cornell Law School',
+      url: 'https://www.law.cornell.edu/supremecourt/text/406/205',
+      note: { en: 'Full text of the U.S. Supreme Court decision on compulsory schooling for Amish parents.', es: 'Texto completo de la decisión de la Corte Suprema de EE. UU. sobre la escolarización obligatoria de familias amish.' },
+    },
+    {
+      title: 'Discover Lancaster – Amish Tour',
+      org: 'Discover Lancaster',
+      url: 'https://www.discoverlancaster.com/groups/itineraries/amish-tour/',
+      note: { en: 'Original tourism itinerary analysed in Section 08.', es: 'Itinerario turístico original analizado en la Sección 08.' },
+    },
+    {
+      title: 'Amish Farm and House – Plan Your Visit',
+      org: 'Amish Farm and House',
+      url: 'https://amishfarmandhouse.com/plan-your-visit/',
+      note: { en: 'Official visitor information cited in Section 07.', es: 'Información oficial para visitantes citada en la Sección 07.' },
+    },
+    {
+      title: 'Amish Farm and House – House Tour',
+      org: 'Amish Farm and House',
+      url: 'https://amishfarmandhouse.com/tours/house-tour/',
+      note: { en: 'Official page for the house tour cited in Section 07.', es: 'Página oficial de la visita a la casa citada en la Sección 07.' },
+    },
+    {
+      title: 'Discover Lancaster – Farmers Markets',
+      org: 'Discover Lancaster',
+      url: 'https://www.discoverlancaster.com/things-to-do/shopping/farmers-markets/',
+      note: { en: 'Official information on farmers\x27 markets cited in Section 07.', es: 'Información oficial sobre mercados de agricultores citada en la Sección 07.' },
+    },
+    {
+      title: 'Discover Lancaster – Amish Countryside',
+      org: 'Discover Lancaster',
+      url: 'https://www.discoverlancaster.com/regions-towns/amish-countryside/',
+      note: { en: 'Official overview of the Amish countryside cited in Section 07.', es: 'Descripción oficial de la campiña amish citada en la Sección 07.' },
+    },
   ],
   consultedOn: { en: 'Check current details with each source before relying on information that may change over time.', es: 'Consulte cada fuente para confirmar los datos que puedan cambiar con el tiempo.' },
 };
@@ -606,3 +646,331 @@ export const photoCredits: { url: string; alt: Record<Lang, string>; photographe
     photographer: 'Aaron J Hill',
   },
 ];
+
+// Submission 2. Interface labels are bilingual. Academic text, dialogue, source names and the
+// original tourism excerpt stay in English in both languages, exactly as supplied.
+
+export type TopicBlock =
+  | { kind: 'text'; paragraphs: string[] }
+  | { kind: 'list'; items: string[] }
+  | { kind: 'places'; items: { name: string; location?: string; note: string; url: string }[] }
+  | { kind: 'activities'; items: { title: string; learn: string; url?: string }[] };
+
+export const newSections = {
+  pendingLabel: { en: 'Pending approved content', es: 'Contenido aprobado pendiente' },
+  places: {
+    heading: { en: 'Places of Interest', es: 'Lugares de interés' },
+    subtitle: { en: 'Stories & Recommendations', es: 'Historias y recomendaciones' },
+    lead: {
+      en: 'The history of Amish communities in Lancaster County, the difficulties they have faced, and the places, activities, products and recommendations that connect visitors with that history.',
+      es: 'La historia de las comunidades amish en el condado de Lancaster, las dificultades que han enfrentado y los lugares, actividades, productos y recomendaciones que conectan a los visitantes con esa historia.',
+    },
+    topicsHint: {
+      en: 'Select a topic to read it. You can open several topics at once.',
+      es: 'Seleccione un tema para leerlo. Puede abrir varios temas a la vez.',
+    },
+    visitLinkLabel: { en: 'Official website', es: 'Sitio oficial' },
+    infoLinkLabel: { en: 'Official information', es: 'Información oficial' },
+    homesNote: {
+      en: 'Educational attractions and shops listed here are open to visitors. Private Amish homes and farms are not attractions: do not enter private property or assume that it is open to visitors.',
+      es: 'Los atractivos educativos y las tiendas que aparecen aquí están abiertos a visitantes. Las casas y granjas amish privadas no son atractivos: no entre en propiedad privada ni suponga que está abierta a visitantes.',
+    },
+    topics: [
+      {
+        id: 'history',
+        title: { en: 'Amish history in Lancaster County', es: 'Historia amish en el condado de Lancaster' },
+        blocks: [
+          {
+            kind: 'text',
+            paragraphs: [
+              'The Amish are part of the Anabaptist Christian tradition. Their origins are connected to the Anabaptist movement in sixteenth-century Europe. Amish communities developed as a distinct religious group under the leadership of Jakob Ammann in the late seventeenth century.',
+              'Amish families migrated to Pennsylvania during the eighteenth century, attracted by William Penn\'s policy of religious tolerance.',
+              'Lancaster County became one of the oldest and most recognized Amish settlements in North America.',
+              'Their religious identity emphasizes community, humility, family, mutual assistance, and separation from aspects of mainstream society.',
+              'Amish communities are not homogeneous. Different church districts have different practices and rules.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'discrimination',
+        title: { en: 'Discrimination, exclusion and community response', es: 'Discriminación, exclusión y respuesta comunitaria' },
+        blocks: [
+          {
+            kind: 'list',
+            items: [
+              'Religious persecution in Europe: the Amish trace their origins to the Anabaptist movement, whose members faced religious persecution in sixteenth-century Europe. Sources in the list below give the historical detail; this guide does not extend specific episodes to the Amish without evidence.',
+              'Migration to Pennsylvania in search of religious freedom: Amish families came to Pennsylvania in the eighteenth century, attracted by William Penn\'s policy of religious tolerance.',
+              'Conflicts with public education requirements: in the twentieth century, compulsory schooling rules conflicted with Amish beliefs about separation from worldly influences and with their system of community-based vocational education.',
+              'The importance of religious freedom and community autonomy: the right to live by the community\'s religious rules is central to Amish identity and to the community\'s response to these conflicts.',
+            ],
+          },
+          {
+            kind: 'text',
+            paragraphs: [
+              'Wisconsin v. Yoder (1972). Amish parents challenged compulsory high-school attendance because they believed it conflicted with their religious way of life and their system of community-based vocational education. The United States Supreme Court ruled in favor of the Amish parents under the circumstances of that case.',
+              'The decision matters for religious freedom in the United States. It did not eliminate every conflict between Amish communities and wider society, and Amish communities continue to negotiate with public institutions.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'places',
+        title: { en: 'Places of historical and cultural importance', es: 'Lugares de importancia histórica y cultural' },
+        blocks: [
+          {
+            kind: 'places',
+            items: [
+              {
+                name: 'Amish Farm and House',
+                location: '2395 Covered Bridge Drive, Lancaster, PA 17602',
+                note: 'Educational attraction presenting Amish history and aspects of daily life. Guided farmhouse and farm experiences.',
+                url: 'https://amishfarmandhouse.com/',
+              },
+              {
+                name: 'The Amish Experience',
+                location: 'Bird-in-Hand',
+                note: 'Educational experiences about Amish history and culture.',
+                url: 'https://www.amishexperience.com/',
+              },
+              {
+                name: 'Kitchen Kettle Village',
+                location: 'Intercourse, Pennsylvania',
+                note: 'Local shops, food products, crafts and activities.',
+                url: 'https://www.kitchenkettlevillage.com/',
+              },
+              {
+                name: 'Bird-in-Hand Farmers Market',
+                note: 'Local vendors, baked goods, produce, crafts and regional products.',
+                url: 'https://www.discoverlancaster.com/things-to-do/shopping/farmers-markets/',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'activities',
+        title: { en: 'Activities for visitors', es: 'Actividades para visitantes' },
+        blocks: [
+          {
+            kind: 'activities',
+            items: [
+              {
+                title: 'Guided countryside tours',
+                learn: 'Learn about farms, rural roads and the landscape from a guide who explains the local context.',
+                url: 'https://www.discoverlancaster.com/regions-towns/amish-countryside/',
+              },
+              {
+                title: 'Authorized horse-and-buggy rides',
+                learn: 'Experience travel by horse-drawn buggy with an authorized operator and see how buggies are used for local transport.',
+                url: 'https://www.discoverlancaster.com/groups/itineraries/amish-tour/',
+              },
+              {
+                title: 'Educational farmhouse tours',
+                learn: 'Learn about daily life, family and farm work in an organized educational setting.',
+                url: 'https://amishfarmandhouse.com/plan-your-visit/',
+              },
+              {
+                title: 'Visiting farmers\' markets',
+                learn: 'See local produce, baked goods and crafts sold directly by local vendors.',
+                url: 'https://www.discoverlancaster.com/things-to-do/shopping/farmers-markets/',
+              },
+              {
+                title: 'Exploring local villages such as Intercourse and Bird-in-Hand',
+                learn: 'Walk through village centres with shops, food and crafts, and keep to public areas when you visit.',
+                url: 'https://www.discoverlancaster.com/regions-towns/amish-countryside/',
+              },
+              {
+                title: 'Learning about traditional crafts and agricultural activities',
+                learn: 'Understand how quilts, woodwork and farming form part of community economic life.',
+                url: 'https://www.kitchenkettlevillage.com/',
+              },
+              {
+                title: 'Visiting museums and cultural attractions',
+                learn: 'Visit educational exhibits that explain Amish history and culture.',
+                url: 'https://www.discoverlancaster.com/groups/itineraries/amish-tour/',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'products',
+        title: { en: 'Products, food and local markets', es: 'Productos, gastronomía y mercados locales' },
+        blocks: [
+          {
+            kind: 'text',
+            paragraphs: [
+              'Local markets and small businesses sell regional products that are part of community life: handmade quilts, baked goods, jams and relishes, fresh produce, handmade crafts and wooden products.',
+              'Pennsylvania Dutch regional food includes dishes such as shoofly pie and chicken corn soup.',
+              'Farmers\' markets and small local businesses give visitors direct contact with local producers. Buying from them supports the local economy.',
+            ],
+          },
+          {
+            kind: 'list',
+            items: [
+              'Handmade quilts',
+              'Baked goods',
+              'Jams and relishes',
+              'Fresh produce',
+              'Handmade crafts',
+              'Wooden products',
+              'Pennsylvania Dutch regional food, such as shoofly pie and chicken corn soup',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'recommendations',
+        title: { en: 'Recommendations for responsible tourism', es: 'Recomendaciones para el turismo responsable' },
+        blocks: [
+          {
+            kind: 'list',
+            items: [
+              'Respect private property.',
+              'Ask permission before photographing people.',
+              'Do not assume all Amish families follow the same customs.',
+              'Drive carefully around horse-drawn buggies.',
+              'Follow local guides\' instructions.',
+              'Respect religious practices and Sunday closures where applicable.',
+              'Prefer educational experiences with reliable cultural information.',
+              'Support local businesses respectfully.',
+            ],
+          },
+          {
+            kind: 'text',
+            paragraphs: [
+              'Responsible tourism means treating Lancaster County as a living community: enjoy its landscapes, markets and educational experiences, and leave private life and daily work undisturbed.',
+            ],
+          },
+        ],
+      },
+    ] as { id: string; title: Record<Lang, string>; blocks: TopicBlock[] }[],
+    mapHeading: { en: 'Map of Lancaster County and the places mentioned', es: 'Mapa del condado de Lancaster y de los lugares mencionados' },
+    mapNote: {
+      en: 'Street View panoramas show only verified public places. Panoramas are captured images, not a live view.',
+      es: 'Las panorámicas de Street View muestran solo lugares públicos verificados. Son imágenes capturadas, no una vista en vivo.',
+    },
+    // Verified Street View points, same shape as the Discover the Region points. Empty until verified.
+    streetViewPoints: [] as {
+      name: Record<Lang, string>;
+      location: Record<Lang, string>;
+      coordinates?: string;
+      pano?: string;
+      radius?: number;
+      heading?: number;
+      pitch?: number;
+    }[],
+    streetViewNoKey: {
+      en: 'Street View is not configured. Set VITE_GOOGLE_MAPS_EMBED_API_KEY in .env.local and restart Vite.',
+      es: 'Street View no está configurado. Configura VITE_GOOGLE_MAPS_EMBED_API_KEY en .env.local y reinicia Vite.',
+    },
+    streetViewNoPoints: {
+      en: 'Street View panoramas will appear here once the locations are verified.',
+      es: 'Las panorámicas de Street View aparecerán aquí cuando se verifiquen las ubicaciones.',
+    },
+  },
+  interaction: {
+    heading: { en: 'Tourist Interaction & Critical Mediation', es: 'Interacción turística y mediación crítica' },
+    lead: {
+      en: 'How the Amish community is presented in tourism, what that presentation leaves out, and how to adapt it for international visitors.',
+      es: 'Cómo se presenta a la comunidad amish en el turismo, qué deja fuera esa presentación y cómo adaptarla para visitantes internacionales.',
+    },
+    parts: {
+      intro: { en: 'Introduction', es: 'Introducción' },
+      original: { en: 'Original tourism content', es: 'Contenido turístico original' },
+      analysis: { en: 'Critical analysis', es: 'Análisis crítico' },
+      adaptation: { en: 'Cultural adaptation', es: 'Adaptación cultural' },
+      video: { en: 'Final video', es: 'Video final' },
+    },
+    introText:
+      'This section explores how tourism websites represent the Amish community in Lancaster County. Tourism information can help visitors discover local activities and attractions, but it can also create incomplete representations when it focuses mainly on commercial experiences. Our goal is to examine one authentic tourism example and adapt its message to encourage respectful and culturally informed visits.',
+    originalLabel: { en: 'Original excerpt (English)', es: 'Fragmento original (inglés)' },
+    originalExcerpt:
+      'Buggy ride, Amish homestead attractions, quilt shops and museum, farmers\' market, crafts and local jam/relish/canning shops.',
+    originalOrg: { en: 'Discover Lancaster', es: 'Discover Lancaster' },
+    originalLinkLabel: { en: 'Open the original itinerary', es: 'Abrir el itinerario original' },
+    originalUrl: 'https://www.discoverlancaster.com/groups/itineraries/amish-tour/',
+    originalNote: {
+      en: 'This is a tourism itinerary written to promote visits. It is not a statement written by a member of the Amish community. The excerpt does not state an author or a publication date.',
+      es: 'Es un itinerario turístico escrito para promover visitas. No es una declaración escrita por un miembro de la comunidad amish. El fragmento no indica autor ni fecha de publicación.',
+    },
+    analysis: [
+      {
+        title: { en: 'Tourist representation of the community', es: 'Representación turística de la comunidad' },
+        paragraphs: [
+          'The text presents Lancaster County through tourist activities, shopping, attractions, local crafts and food products. It gives visitors practical ideas for planning a visit.',
+        ],
+      },
+      {
+        title: { en: 'Perspectives included and excluded', es: 'Perspectivas incluidas y excluidas' },
+        paragraphs: [
+          'The text includes the perspective of tourism planners and visitor experiences. However, it does not directly present Amish voices, personal experiences, religious beliefs or explanations of community privacy.',
+        ],
+      },
+      {
+        title: { en: 'Possible stereotypes', es: 'Posibles estereotipos' },
+        paragraphs: [
+          'By focusing on horse-drawn buggies, traditional crafts and homestead attractions, the text may reinforce an image of Amish people as a tourist attraction or as a community frozen in the past.',
+          'This does not mean that the itinerary is necessarily disrespectful. Its limitation is that it provides a commercial tourism perspective rather than a complete cultural explanation.',
+        ],
+      },
+      {
+        title: { en: 'Tourist attraction and living community', es: 'Atracción turística y comunidad viva' },
+        paragraphs: [
+          'The Amish are people who live, work, raise families and practice their faith. They are not performers in a museum. Visitors should distinguish between authorized educational attractions and private community life.',
+        ],
+      },
+    ],
+    adaptedTitle: { en: 'Adapted message for international visitors', es: 'Mensaje adaptado para visitantes internacionales' },
+    adaptedMessage:
+      'Discover Lancaster County through its rural landscapes, local markets, traditional crafts, and guided cultural experiences. Learn about Amish history and traditions from reliable educational sources and authorized local guides. Remember that Amish families live and work in these communities. Respect private property, ask permission before taking photographs, and drive carefully when you see horse-drawn buggies.',
+    decisionsTitle: { en: 'Translation and contextualization decisions', es: 'Decisiones de traducción y contextualización' },
+    decisions: [
+      '"Amish homestead attractions" should be contextualized as educational experiences about Amish history and daily life. The phrase should not suggest that visitors can freely enter private homes.',
+      'Local products such as quilts, jams and handmade crafts should be presented as part of regional economic and cultural life, not simply as souvenirs.',
+      'Recommendations about privacy, photography and road safety should be added because international visitors may not know the cultural and practical context of Lancaster County.',
+    ],
+    responsibleTitle: { en: 'Responsible tourism recommendations', es: 'Recomendaciones para el turismo responsable' },
+    responsible: [
+      'Respect private property.',
+      'Ask permission before taking photographs.',
+      'Follow local guides\' instructions.',
+      'Drive carefully around horse-drawn buggies.',
+      'Learn about the community from reliable sources.',
+      'Avoid generalizations about all Amish families.',
+    ],
+    videoTitle: { en: 'Final video, about four minutes, two speakers', es: 'Video final, unos cuatro minutos, dos narradores' },
+    videoError: {
+      en: 'The video could not be loaded. Please try again later.',
+      es: 'No se pudo cargar el video. Inténtelo de nuevo más tarde.',
+    },
+    videoUnsupported: {
+      en: 'Your browser does not support the video element.',
+      es: 'Su navegador no admite el elemento de video.',
+    },
+    scriptToggleShow: { en: 'Show video script', es: 'Mostrar guion del video' },
+    scriptToggleHide: { en: 'Hide video script', es: 'Ocultar guion del video' },
+    scriptHeading: { en: 'Video script', es: 'Guion del video' },
+    videoScript: [
+      { speaker: 'one', text: 'Welcome to our cultural tourism guide! Today, we are going to analyze how tourism websites present the Amish community in Lancaster County, Pennsylvania. We will also explain how to adapt this information for international visitors in a respectful way.' },
+      { speaker: 'two', text: 'We selected an authentic example from Discover Lancaster, an official tourism organization. Its Amish Tour itinerary promotes buggy rides, Amish homestead attractions, quilt shops, museums, farmers\' markets, crafts, and local food products.' },
+      { speaker: 'one', text: 'This description is useful because it gives visitors clear ideas about activities and places. It also highlights local products, such as quilts, jams, and handmade crafts. However, does it show the complete story of the Amish community?' },
+      { speaker: 'two', text: 'Not really. The text focuses mainly on the visitor experience. It presents activities, shopping, and attractions, but it does not explain much about Amish history, religious beliefs, family life, or the importance of privacy.' },
+      { speaker: 'one', text: 'This representation can create an incomplete image. Visitors might think that Amish people are simply a tourist attraction or that every family is available for photographs, tours, and questions.' },
+      { speaker: 'two', text: 'We should remember that the Amish are a diverse religious community. They are not actors in a museum. They live, work, study, and practice their beliefs. Different Amish groups may also follow different traditions.' },
+      { speaker: 'one', text: 'Now, let\'s adapt the original message for international visitors. Instead of translating only the list of attractions, we can provide cultural context and responsible recommendations.' },
+      { speaker: 'two', text: 'Our adapted version is: "Discover Lancaster County through its rural landscapes, local markets, traditional crafts, and guided cultural experiences. Learn about Amish history and traditions from reliable educational sources and authorized local guides. Remember that Amish families live and work in these communities. Respect private property, ask permission before taking photographs, and drive carefully when you see horse-drawn buggies."' },
+      { speaker: 'one', text: 'We made some important translation decisions. First, we translated "Amish homestead attractions" as educational experiences about Amish history and daily life, instead of suggesting that visitors can freely enter private homes.' },
+      { speaker: 'two', text: 'Second, we kept the meaning of local products, such as quilts and homemade foods, but added context. These products are part of local economic and cultural life, not just souvenirs.' },
+      { speaker: 'one', text: 'Finally, we included recommendations about privacy, photography, and road safety. These details help international visitors understand that responsible tourism requires respect.' },
+      { speaker: 'two', text: 'We enjoy discovering new cultures, but we should not reduce a community to stereotypes or commercial experiences.' },
+      { speaker: 'both', text: 'Travel with curiosity, learn with respect, and remember that every community deserves privacy and dignity. Thank you for watching!' },
+    ] as { speaker: 'one' | 'two' | 'both'; text: string }[],
+    scriptSpeakers: {
+      one: { en: 'Speaker 1', es: 'Speaker 1' },
+      two: { en: 'Speaker 2', es: 'Speaker 2' },
+      both: { en: 'Both', es: 'Both' },
+    },
+  },
+};

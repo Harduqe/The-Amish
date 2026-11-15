@@ -7,6 +7,8 @@ import GettingThere from '@/components/GettingThere';
 import VideoSection from '@/components/VideoSection';
 import ResponsibleTourism from '@/components/ResponsibleTourism';
 import EnglishToolkit from '@/components/EnglishToolkit';
+import PlacesOfInterest from '@/components/PlacesOfInterest';
+import InteractionSection from '@/components/InteractionSection';
 import Sources from '@/components/Sources';
 import Footer from '@/components/Footer';
 import { LanguageProvider, useLang } from '@/i18n';
@@ -50,6 +52,8 @@ function Page() {
         <VideoSection />
         <ResponsibleTourism />
         <EnglishToolkit />
+        <PlacesOfInterest />
+        <InteractionSection />
         <Sources />
       </main>
       <Footer />
